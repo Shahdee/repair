@@ -1,0 +1,12 @@
+{
+	"items":[
+		{"itemID": 0, "prefab": "Vase", "fracturedPrefab": "VaseFractured", "points": 5}
+	],
+
+	"levels": [{
+		"levelID": 0, "items":[
+            	{"itemID": 0, "probability": 1}
+			]
+		}
+	]
+}
