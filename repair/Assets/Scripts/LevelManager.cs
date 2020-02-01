@@ -70,9 +70,10 @@ public class LevelManager : MonoBehaviour, IUpdatable
         Game.Models.ClientMeta cmeta = clients[currClientIndex];
         currClient.SetupClient(cmeta);
 
-        int cpx = currClient.GetPizzaComplexity();
-
-        Game.Models.PizzaMeta pMeta = MainLogic.GetMainLogic().GetItemManager().GetRandomPizza(cpx);
+        // int cpx = currClient.GetPizzaComplexity();
+        // Game.Models.PizzaMeta pMeta = MainLogic.GetMainLogic().GetItemManager().GetRandomPizza(cpx);
+        
+        Game.Models.PizzaMeta pMeta = MainLogic.GetMainLogic().GetItemManager().GetRandomPizza();
         currPizza.SetupPizza(pMeta);
 
         var visual = currPizza.GetVisual();
@@ -87,6 +88,8 @@ public class LevelManager : MonoBehaviour, IUpdatable
 
         currTimeLeft = time;
         timerTicking = true;
+
+        EventManager.OnTimerChange(currTimeLeft);
     }
 
     public void UpdateMe(float deltaTime){
@@ -103,9 +106,13 @@ public class LevelManager : MonoBehaviour, IUpdatable
 
             if (currTimeLeft > 0){
                 currTimeLeft -= deltaTime;
+
+                EventManager.OnTimerChange(currTimeLeft);
             }
             else{
                 timerTicking = false;
+
+                EventManager.OnTimerChange(currTimeLeft);
 
                 TimeIsUp();
             }

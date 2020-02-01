@@ -15,13 +15,15 @@ public class Player
 
     public void ResetScandalScale(){
 
+        scandalScale = DEFAULT_SCANDAL_SCALE;
+
+        EventManager.OnPlayerScoreChange(scandalScale);
     }
 
     public void SetScandalScale(){
 
-    }
 
-    
-    
+        EventManager.OnPlayerScoreChange(scandalScale);
+    }
     
 }

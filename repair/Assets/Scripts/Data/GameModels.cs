@@ -40,8 +40,8 @@ namespace Game.Models{
         // id 
         // belongs to complexity 
 
-
         // ingredients to mix (2-4), depends on complexity 
+        // ingredients = garbage 
 
         // TODO discuss ? 
         // with N% decides if exlude happens 

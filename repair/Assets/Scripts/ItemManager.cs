@@ -82,6 +82,11 @@ public class ItemManager
         }
     }
 
+    public Game.Models.PizzaMeta GetRandomPizza(){
+        int randIdx = UnityEngine.Random.Range(0, allPizzas.Length);
+        return allPizzas[randIdx];
+    }
+
 
    // TODO randmozie clients for curr session 
 }

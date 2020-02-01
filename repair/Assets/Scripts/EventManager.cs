@@ -43,4 +43,25 @@ public static class EventManager
     }
 
 
+    public static UnityAction<float> onPlayerScoreChangeCallback;
+
+    public static void AddPlayerScoreChangeListener(UnityAction<float> listener){
+        onPlayerScoreChangeCallback += listener;
+    }
+
+    public static void OnPlayerScoreChange(float score){
+        if (onPlayerScoreChangeCallback != null)
+            onPlayerScoreChangeCallback(score);
+    }
+
+    public static UnityAction<float> onTimerChangeCallback;
+
+    public static void AddTimerChangeListener(UnityAction<float> listener){
+        onTimerChangeCallback += listener;
+    }
+
+    public static void OnTimerChange(float score){
+        if (onTimerChangeCallback != null)
+            onTimerChangeCallback(score);
+    }
 }
