@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PizzaManager 
+public class CardboardBox : MonoBehaviour
 {
-   // collection of all pizzaz we have 
+   // can close and animate 
 }

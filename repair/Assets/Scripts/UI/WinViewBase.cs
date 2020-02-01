@@ -8,7 +8,7 @@ public class WinViewBase : MonoBehaviour, IInitable, IUpdatable
     public enum WinType{
         Menu,
         Gameplay,
-        LevelComplete
+        Over,
     }
 
     public Canvas m_Canvas;

@@ -62,13 +62,19 @@ public class GUILogic : UIObject, IInitable, IUpdatable
 
     void GameStateChange(MainLogic.GameStates state){
 
+        Debug.Log("GameStateChange " + state);
+
         switch(state){
+            case MainLogic.GameStates.Menu:
+                OpenWindow(WinViewBase.WinType.Menu);
+            break;
+
             case MainLogic.GameStates.Play:
                 OpenWindow(WinViewBase.WinType.Gameplay);
             break;
 
             case MainLogic.GameStates.Over:
-                OpenWindow(WinViewBase.WinType.LevelComplete);
+                OpenWindow(WinViewBase.WinType.Over);
             break;
         }
     }

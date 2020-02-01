@@ -10,9 +10,16 @@ namespace Game.Models{
         public string assetName;
         public int clientID;
         public int timer;
-        public string assetSoundName;
-        public int pizzaComplexity; // 1-3
-        public int scandalScaleCoeff;
+        public int pizzaComplexity;
+
+        //
+
+
+        // public string assetSoundName;
+        // public int pizzaComplexity; // 1-3
+        // public int scandalScaleCoeff;
+
+
 
         // asset name 
         // id 
@@ -25,19 +32,15 @@ namespace Game.Models{
     [System.Serializable]
     public class PizzaMeta{
 
-        public enum PizzaType{
-            //
-        }
-
-        public PizzaType pizzaType;
-        string assetName;
+        public string assetName;
         public int pizzaId;
-        public int pizzaComplexity; // 1-3
+        public int complexity; // 1-3
 
         // asset name
-        // type 
         // id 
         // belongs to complexity 
+
+
         // ingredients to mix (2-4), depends on complexity 
 
         // TODO discuss ? 
@@ -51,10 +54,10 @@ namespace Game.Models{
     public class IngredientMeta{ 
 
         public enum IngredientType{
-            // 
+            // ?
         }
 
-        public IngredientType ingredientType;
+        public IngredientType ingredientType; // ? 
         public string assetName;
         public int ingredientID;
         public string assetSoundName;

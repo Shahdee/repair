@@ -18,4 +18,29 @@ public static class EventManager
         if (onGameStateChangeCallback != null)
             onGameStateChangeCallback(state);
     }
+
+
+    public static UnityAction onGameStartCallback;
+
+    public static void AddGameStartListener(UnityAction listener){
+        onGameStartCallback += listener;
+    }
+
+    public static void OnGameStart(){
+        if (onGameStartCallback != null)
+            onGameStartCallback();
+    }
+
+    public static UnityAction onGameEndedCallback;
+
+    public static void AddGameEndedListener(UnityAction listener){
+        onGameEndedCallback += listener;
+    }
+
+    public static void OnGameEnded(){
+        if (onGameEndedCallback != null)
+            onGameEndedCallback();
+    }
+
+
 }

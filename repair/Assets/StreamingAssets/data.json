@@ -1,12 +1,20 @@
 {
-	"items":[
-		{"itemID": 0, "prefab": "Vase", "fracturedPrefab": "VaseFractured", "points": 5}
+	"clients":[
+		{"clientID": 0, "assetName": "client1", "timer": 4, "pizzaComplexity": 1},
+		{"clientID": 1, "assetName": "client2", "timer": 5, "pizzaComplexity": 2},
+		{"clientID": 2, "assetName": "client3", "timer": 3, "pizzaComplexity": 3}
 	],
 
-	"levels": [{
-		"levelID": 0, "items":[
-            	{"itemID": 0, "probability": 1}
-			]
-		}
+	"pizzas": [
+		{"pizzaID": 0, "assetName": "pizza1", "complexity": 1},
+		{"pizzaID": 1, "assetName": "pizza2", "complexity": 2},
+		{"pizzaID": 2, "assetName": "pizza3", "complexity": 3}
+	],
+
+	"ingredients": [
+		{"ingredientID": 0, "assetName": "cucumber" },
+		{"ingredientID": 1, "assetName": "cheese" },
+		{"ingredientID": 2, "assetName": "mushroom" },
+		{"ingredientID": 3, "assetName": "tomatoe" }
 	]
 }

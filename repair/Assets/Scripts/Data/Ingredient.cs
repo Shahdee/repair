@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Ingredient : MonoBehaviour
 {
+   Game.Models.IngredientMeta ingredientMeta;
    // meta 
 
+
    // visual 
+   IngredientVisual ingredientVisual;
 
    // sound 
 

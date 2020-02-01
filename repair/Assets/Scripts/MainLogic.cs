@@ -8,7 +8,9 @@ public class MainLogic : MonoBehaviour
     public EntityManager entityManager;
     public InputManager inputManager;
     public LevelManager levelManager;
+    public ItemManager itemManager;
     Player player;
+    DataController dataController;
 
     public enum GameStates{
         Menu,
@@ -39,6 +41,10 @@ public class MainLogic : MonoBehaviour
         return levelManager;
     }
 
+    public ItemManager GetItemManager(){
+        return itemManager;
+    }
+
     static MainLogic mainLogic;
 
     public static MainLogic GetMainLogic(){
@@ -53,52 +59,42 @@ public class MainLogic : MonoBehaviour
     {
         mainLogic = this; 
 
-        levelManager = new LevelManager();
-
+        itemManager = new ItemManager();
+        dataController = new DataController();
         
+        inputManager.Init();
 
-        // inputManager.Init();
-        // m_Level.Init();
-        // entityManager.Init();
-        // guiLogic.Init();
-
-        // m_levelManager.AddGameStartListener(GameStarted);
-        // m_levelManager.AddLevelStartListener(LevelStarted);
-        // m_levelManager.AddLevelEndListener(LevelEnded);
+        EventManager.AddGameStartListener(GameStarted);
+        EventManager.AddGameEndedListener(GameEnded);
 
         OnDataLoaded();
+
+        guiLogic.Init();
     }
 
     void OnDataLoaded(){
-        // init pizza manager 
-        // init ingredient manager 
+
+        var gameData = dataController.GetGameData();
+
+        itemManager.PrepareClients(gameData.clients);
+        itemManager.PreparePizzas(gameData.pizzas);
+        itemManager.PrepareIngredients(gameData.ingredients);       
     }
 
 #region Level events 
-    void GameStarted(int level){
+    void GameStarted(){
+
         SetGameState(GameStates.Play);
     }
 
-    void LevelStarted(int level){
-        SetGameState(GameStates.Play);
-    }
-
-    void LevelEnded(){
+    void GameEnded(){
         SetGameState(GameStates.Over);
     }
 #endregion
 
-    // public void StartGame(){
-    //     m_levelManager.StartGame(0);
-    // }
-
-    // public void RestartLevel(){
-    //     m_levelManager.RestartCurrLevel();
-    // }
-
-    // public void MoveNext(){
-    //     m_levelManager.MoveNext(); 
-    // }
+    public void StartGame(){
+        levelManager.StartLevel();
+    }
 
     float deltaTime = 0;
 
@@ -135,8 +131,7 @@ public class MainLogic : MonoBehaviour
 
     void UpdatePlay(float deltaTime){
 
-        // inputManager.UpdateMe(deltaTime);
-        
+        inputManager.UpdateMe(deltaTime);        
         levelManager.UpdateMe(deltaTime);       
         guiLogic.UpdateMe(deltaTime);
     }

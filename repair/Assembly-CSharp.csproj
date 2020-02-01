@@ -53,7 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\ClientManager.cs" />
+     <Compile Include="Assets\Scripts\Data\CardboardBox.cs" />
      <Compile Include="Assets\Scripts\Data\Client.cs" />
      <Compile Include="Assets\Scripts\Data\GameData.cs" />
      <Compile Include="Assets\Scripts\Data\GameModels.cs" />
@@ -62,20 +62,31 @@
      <Compile Include="Assets\Scripts\Data\Ingredient.cs" />
      <Compile Include="Assets\Scripts\Data\Pizza.cs" />
      <Compile Include="Assets\Scripts\Data\Player.cs" />
+     <Compile Include="Assets\Scripts\Data\Visuals\IngredientVisual.cs" />
+     <Compile Include="Assets\Scripts\Data\Visuals\PizzaVisual.cs" />
      <Compile Include="Assets\Scripts\Data\Wishes.cs" />
      <Compile Include="Assets\Scripts\DataController.cs" />
      <Compile Include="Assets\Scripts\EntityManager.cs" />
      <Compile Include="Assets\Scripts\EventManager.cs" />
      <Compile Include="Assets\Scripts\GUILogic.cs" />
-     <Compile Include="Assets\Scripts\IngredientManager.cs" />
      <Compile Include="Assets\Scripts\InputManager.cs" />
      <Compile Include="Assets\Scripts\Interfaces.cs" />
+     <Compile Include="Assets\Scripts\ItemManager.cs" />
      <Compile Include="Assets\Scripts\LevelManager.cs" />
      <Compile Include="Assets\Scripts\MainLogic.cs" />
-     <Compile Include="Assets\Scripts\PizzaManager.cs" />
+     <Compile Include="Assets\Scripts\ReusableObject.cs" />
      <Compile Include="Assets\Scripts\SoundManager.cs" />
-     <Compile Include="Assets\Scripts\Windows\WinControllerBase.cs" />
-     <Compile Include="Assets\Scripts\Windows\WinViewBase.cs" />
+     <Compile Include="Assets\Scripts\UI\Buttons\CommonButton.cs" />
+     <Compile Include="Assets\Scripts\UI\Buttons\ExtendedButton.cs" />
+     <Compile Include="Assets\Scripts\UI\Concrete\WinGameplay.cs" />
+     <Compile Include="Assets\Scripts\UI\Concrete\WinGameplayController.cs" />
+     <Compile Include="Assets\Scripts\UI\Concrete\WinMenu.cs" />
+     <Compile Include="Assets\Scripts\UI\Concrete\WinMenuController.cs" />
+     <Compile Include="Assets\Scripts\UI\Concrete\WinOver.cs" />
+     <Compile Include="Assets\Scripts\UI\Concrete\WinOverController.cs" />
+     <Compile Include="Assets\Scripts\UI\UIObject.cs" />
+     <Compile Include="Assets\Scripts\UI\WinControllerBase.cs" />
+     <Compile Include="Assets\Scripts\UI\WinViewBase.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>/Users/margarita/Documents/Repos/repair/repair/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>

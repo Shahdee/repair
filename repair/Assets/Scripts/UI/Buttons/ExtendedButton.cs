@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IngredientManager 
-{
-    
+namespace UnityEngine.UI{
+    public class ExtendedButton : Button
+    {
+
+
+
+    }
 }

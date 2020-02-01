@@ -4,44 +4,140 @@ using UnityEngine;
 
 // manages all objects on level 
 
-public class LevelManager : MonoBehaviour, IUpdatable
-{
-
     // curr client 
     // curr pizza 
-    // timer 
+    // pizza box
+    // ticking timer 
     // garbage collector 
-
     // hint 
-    // wishes list 
+    // wishes list    
+    // pizza parent
 
-    List<Client> clientOrder; // randomized list of clients for curr session 
+public class LevelManager : MonoBehaviour, IUpdatable
+{
+    public Transform pizzaParent;
+    public CardboardBox box;
+
+    int currClientIndex = 0;
+    
+    Game.Models.ClientMeta[] clients;
     Client currClient;
     Pizza currPizza;
-    Garbage garbage;
+    Garbage garbage;   
 
+    float currTimeLeft = 0;
+    bool timerTicking = false;
+    
+    public Client GetClient(){
+        return currClient;
+    }
+
+    public Pizza GetPizza(){
+        return currPizza;
+    }
+
+    public CardboardBox GetCardboardBox(){
+        return box;
+    }
+
+    void Awake(){
+        currClient = new Client();
+        currPizza = new Pizza();
+    }
 
     public void StartLevel(){
 
+        // TODO mix clients 
+
+        clients = MainLogic.GetMainLogic().GetItemManager().GetClients();
+
+        currClientIndex = -1;
+
+        MoveToNextClient();
+
+        EventManager.OnGameStart();
     }
 
-    void MoveToNextClient(){
+    void MoveToNextClient(){       
 
+        currClientIndex++;
+
+        Debug.Log("MoveToNextClient " + currClientIndex);
+
+        // return object to pool 
+        ResetObjects();
+
+        Game.Models.ClientMeta cmeta = clients[currClientIndex];
+        currClient.SetupClient(cmeta);
+
+        int cpx = currClient.GetPizzaComplexity();
+
+        Game.Models.PizzaMeta pMeta = MainLogic.GetMainLogic().GetItemManager().GetRandomPizza(cpx);
+        currPizza.SetupPizza(pMeta);
+
+        var visual = currPizza.GetVisual();
+        visual.transform.SetParent(pizzaParent);
+
+        SetTimer(cmeta.timer);        
     }
 
+    void SetTimer(int time){
+
+        Debug.Log("SetTimer " + time);
+
+        currTimeLeft = time;
+        timerTicking = true;
+    }
 
     public void UpdateMe(float deltaTime){
         // 
+
+        UpdateTimer(deltaTime);
+    }
+
+    void UpdateTimer(float deltaTime){
+
+        if (timerTicking){
+
+            // Debug.Log("currTimeLeft " + currTimeLeft);
+
+            if (currTimeLeft > 0){
+                currTimeLeft -= deltaTime;
+            }
+            else{
+                timerTicking = false;
+
+                TimeIsUp();
+            }
+        }
+    }
+
+    void TimeIsUp(){
+        // tmp 
+
+        if (currClientIndex == clients.Length -1 )
+            EventManager.OnGameEnded();
+        else 
+            MoveToNextClient();
+    }
+
+    // send to pool 
+    void ResetObjects(){
+        currClient.ResetClient();
+        currPizza.ResetPizza();
     }
     
 
     // start level 
-        // assign client: ClientManager 
-        // assign pizza : Client -> PizzaManager 
+        // assign client: ItemManager 
+        // assign pizza : Client -> ItemManager 
         // launch timer : get from clietn 
 
 
     // move to next client 
+
+        // return objects to pool 
+
         // assign client 
         // assign pizza 
         // launch timer
@@ -53,10 +149,13 @@ public class LevelManager : MonoBehaviour, IUpdatable
         // change player scandal scale 
 
         // check 
-         // win -> show win scnreen 
-         // lost -> show over screen 
-         // else -> mnove to next client 
-
+            // done
+                // return objects to pool 
+                // win -> show win scnreen 
+                // lost -> show over screen 
+         
+            // else
+                // move to next client 
 
     // update 
         // check timer 
