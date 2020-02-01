@@ -26,6 +26,7 @@ public class LevelManager : MonoBehaviour, IUpdatable
     Garbage garbage;   
 
     float currTimeLeft = 0;
+    float totalTime = 0;
     bool timerTicking = false;
     
     public Client GetClient(){
@@ -72,7 +73,7 @@ public class LevelManager : MonoBehaviour, IUpdatable
 
         // int cpx = currClient.GetPizzaComplexity();
         // Game.Models.PizzaMeta pMeta = MainLogic.GetMainLogic().GetItemManager().GetRandomPizza(cpx);
-        
+
         Game.Models.PizzaMeta pMeta = MainLogic.GetMainLogic().GetItemManager().GetRandomPizza();
         currPizza.SetupPizza(pMeta);
 
@@ -86,10 +87,11 @@ public class LevelManager : MonoBehaviour, IUpdatable
 
         Debug.Log("SetTimer " + time);
 
+        totalTime = time;
         currTimeLeft = time;
         timerTicking = true;
 
-        EventManager.OnTimerChange(currTimeLeft);
+        SendTime();
     }
 
     public void UpdateMe(float deltaTime){
@@ -107,16 +109,20 @@ public class LevelManager : MonoBehaviour, IUpdatable
             if (currTimeLeft > 0){
                 currTimeLeft -= deltaTime;
 
-                EventManager.OnTimerChange(currTimeLeft);
+                SendTime();
             }
             else{
                 timerTicking = false;
 
-                EventManager.OnTimerChange(currTimeLeft);
+                SendTime();
 
                 TimeIsUp();
             }
         }
+    }
+
+    void SendTime(){
+        EventManager.OnTimerChange(currTimeLeft/totalTime);
     }
 
     void TimeIsUp(){
