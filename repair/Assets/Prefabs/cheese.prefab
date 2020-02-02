@@ -96,6 +96,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collider2d: {fileID: 686010209203982095}
+  soundTake: {fileID: 8733880040735257152, guid: 73e11e98911408340b86966555b053c4,
+    type: 3}
+  soundPut: {fileID: 8733880040735257152, guid: 6297f5ff46b6f1546b278d5b8a6e8228,
+    type: 3}
 --- !u!61 &686010209203982095
 BoxCollider2D:
   m_ObjectHideFlags: 0

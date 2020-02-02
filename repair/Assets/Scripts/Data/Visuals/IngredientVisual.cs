@@ -10,6 +10,13 @@ public class IngredientVisual : ReusableObject
 
     List<GameObject> touchingObjects;
 
+
+    // sound 
+    [SerializeField]
+    private SoundRandomContainer soundTake;
+    [SerializeField]
+    private SoundRandomContainer soundPut;
+
     // went to garbage 
 
     void Awake(){
