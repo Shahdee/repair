@@ -13,9 +13,9 @@ public class IngredientVisual : ReusableObject
 
     // sound 
     [SerializeField]
-    private SoundRandomContainer soundTake;
+    public SoundRandomContainer soundTake;
     [SerializeField]
-    private SoundRandomContainer soundPut;
+    public SoundRandomContainer soundPut;
 
     // went to garbage 
 
