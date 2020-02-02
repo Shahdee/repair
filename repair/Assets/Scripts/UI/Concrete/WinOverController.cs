@@ -8,7 +8,7 @@ public class WinOverController : WinControllerBase
        
     }
 
-    public void SendSmth(){
-        // m_MainLogic.SendHeroMove(Orientation.North);
+    public void SendRestart(){
+        MainLogic.GetMainLogic().StartGame();
     }
 }

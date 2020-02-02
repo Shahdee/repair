@@ -1,8 +1,8 @@
 {
 	"clients":[
-		{"clientID": 0, "assetName": "client1", "timer": 4, "pizzaComplexity": 1},
-		{"clientID": 1, "assetName": "client2", "timer": 5, "pizzaComplexity": 2},
-		{"clientID": 2, "assetName": "client3", "timer": 3, "pizzaComplexity": 3}
+		{"clientID": 0, "assetName": "client1", "timer": 10, "pizzaComplexity": 1},
+		{"clientID": 1, "assetName": "client2", "timer": 15, "pizzaComplexity": 2},
+		{"clientID": 2, "assetName": "client3", "timer": 20, "pizzaComplexity": 3}
 	],
 
 	"pizzas": [

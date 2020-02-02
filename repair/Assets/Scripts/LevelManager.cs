@@ -132,10 +132,10 @@ public class LevelManager : MonoBehaviour, IUpdatable
 
         // EventManager.OnGameEnded();
 
-        // if (currClientIndex == clients.Length -1 )
-        //     EventManager.OnGameEnded();
-        // else 
-        //     MoveToNextClient();
+        if (currClientIndex == clients.Length -1 )
+            EventManager.OnGameEnded();
+        else 
+            MoveToNextClient();
     }
 
     // send to pool 
