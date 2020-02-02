@@ -38,7 +38,7 @@ namespace Game.Models{
 
         // public List<IngredientMeta> ;
         public int[] ingredientSet;
-        public int[] garbageCount;
+        public int garbageCount;
 
         // asset name
         // id 

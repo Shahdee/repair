@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 51290472}
   - component: {fileID: 51290471}
   - component: {fileID: 51290470}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: slice
   m_TagString: Collision
   m_Icon: {fileID: 0}
@@ -562,7 +562,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 117948718}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: pizzacolliders
   m_TagString: Collision
   m_Icon: {fileID: 0}
@@ -609,7 +609,7 @@ GameObject:
   m_Component:
   - component: {fileID: 175226706}
   - component: {fileID: 175226707}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -754,7 +754,7 @@ GameObject:
   m_Component:
   - component: {fileID: 351135224}
   - component: {fileID: 351135225}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: checkPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1010,7 +1010,7 @@ GameObject:
   - component: {fileID: 529754095}
   - component: {fileID: 529754096}
   - component: {fileID: 529754098}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: pizza (15)
   m_TagString: Collision
   m_Icon: {fileID: 0}
@@ -1213,7 +1213,7 @@ GameObject:
   - component: {fileID: 572197790}
   - component: {fileID: 572197791}
   - component: {fileID: 572197793}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: pizza (13)
   m_TagString: Collision
   m_Icon: {fileID: 0}
@@ -1298,7 +1298,7 @@ GameObject:
   - component: {fileID: 627825962}
   - component: {fileID: 627825961}
   - component: {fileID: 627825960}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: slice (2)
   m_TagString: Collision
   m_Icon: {fileID: 0}
@@ -1729,7 +1729,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 764830027}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ingredientsParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1795,6 +1795,18 @@ MonoBehaviour:
       type: 3}
     amountToPool: 1
     expandable: 1
+  - prototype: {fileID: 5595385758555935886, guid: 53f2ba14acb0f449496e59d2a579cd03,
+      type: 3}
+    amountToPool: 1
+    expandable: 1
+  - prototype: {fileID: 4216711613175714179, guid: 5e370d3099df346fead09134a7f039ba,
+      type: 3}
+    amountToPool: 1
+    expandable: 1
+  - prototype: {fileID: 4216711613175714179, guid: e1dbe069ec1874935a4164eb335c3b3a,
+      type: 3}
+    amountToPool: 1
+    expandable: 1
 --- !u!114 &766493054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1850,7 +1862,7 @@ GameObject:
   m_Component:
   - component: {fileID: 774175958}
   - component: {fileID: 774175959}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pizza
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2072,7 +2084,7 @@ GameObject:
   - component: {fileID: 939967962}
   - component: {fileID: 939967963}
   - component: {fileID: 939967965}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: pizza (11)
   m_TagString: Collision
   m_Icon: {fileID: 0}
@@ -2156,7 +2168,7 @@ GameObject:
   - component: {fileID: 995358070}
   - component: {fileID: 995358071}
   - component: {fileID: 995358072}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CardboardBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2342,7 +2354,7 @@ GameObject:
   - component: {fileID: 1311735604}
   - component: {fileID: 1311735605}
   - component: {fileID: 1311735607}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: pizza (6)
   m_TagString: Collision
   m_Icon: {fileID: 0}
@@ -2426,7 +2438,7 @@ GameObject:
   - component: {fileID: 1325120909}
   - component: {fileID: 1325120910}
   - component: {fileID: 1325120912}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: pizza (9)
   m_TagString: Collision
   m_Icon: {fileID: 0}
@@ -2600,7 +2612,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1439574867}
   - component: {fileID: 1439574868}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: checkPoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2678,7 +2690,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1439939437}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: slices
   m_TagString: Collision
   m_Icon: {fileID: 0}
@@ -2713,7 +2725,7 @@ GameObject:
   - component: {fileID: 1504712445}
   - component: {fileID: 1504712446}
   - component: {fileID: 1504712448}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: pizza (10)
   m_TagString: Collision
   m_Icon: {fileID: 0}
@@ -2797,7 +2809,7 @@ GameObject:
   - component: {fileID: 1547950340}
   - component: {fileID: 1547950341}
   - component: {fileID: 1547950343}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: pizza (3)
   m_TagString: Collision
   m_Icon: {fileID: 0}
@@ -2881,7 +2893,7 @@ GameObject:
   - component: {fileID: 1578834336}
   - component: {fileID: 1578834337}
   - component: {fileID: 1578834339}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: pizza (4)
   m_TagString: Collision
   m_Icon: {fileID: 0}
@@ -2965,7 +2977,7 @@ GameObject:
   - component: {fileID: 1596352108}
   - component: {fileID: 1596352109}
   - component: {fileID: 1596352111}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: pizza (8)
   m_TagString: Collision
   m_Icon: {fileID: 0}
@@ -3049,7 +3061,7 @@ GameObject:
   - component: {fileID: 1615949552}
   - component: {fileID: 1615949553}
   - component: {fileID: 1615949555}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: pizza (7)
   m_TagString: Collision
   m_Icon: {fileID: 0}
@@ -3133,7 +3145,7 @@ GameObject:
   - component: {fileID: 1691901137}
   - component: {fileID: 1691901138}
   - component: {fileID: 1691901140}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: pizza (14)
   m_TagString: Collision
   m_Icon: {fileID: 0}
@@ -3291,7 +3303,7 @@ GameObject:
   - component: {fileID: 1885974148}
   - component: {fileID: 1885974149}
   - component: {fileID: 1885974151}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: pizza (2)
   m_TagString: Collision
   m_Icon: {fileID: 0}
@@ -3375,7 +3387,7 @@ GameObject:
   - component: {fileID: 1992664041}
   - component: {fileID: 1992664042}
   - component: {fileID: 1992664044}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: pizza (1)
   m_TagString: Collision
   m_Icon: {fileID: 0}
@@ -3460,7 +3472,7 @@ GameObject:
   - component: {fileID: 2007257578}
   - component: {fileID: 2007257577}
   - component: {fileID: 2007257576}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: slice (1)
   m_TagString: Collision
   m_Icon: {fileID: 0}
@@ -3955,7 +3967,7 @@ GameObject:
   - component: {fileID: 2031502533}
   - component: {fileID: 2031502534}
   - component: {fileID: 2031502536}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: pizza (12)
   m_TagString: Collision
   m_Icon: {fileID: 0}
@@ -4039,7 +4051,7 @@ GameObject:
   - component: {fileID: 2036257255}
   - component: {fileID: 2036257256}
   - component: {fileID: 2036257258}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: pizza
   m_TagString: Collision
   m_Icon: {fileID: 0}
@@ -4123,7 +4135,7 @@ GameObject:
   - component: {fileID: 2067750352}
   - component: {fileID: 2067750353}
   - component: {fileID: 2067750355}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: pizza (5)
   m_TagString: Collision
   m_Icon: {fileID: 0}

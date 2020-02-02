@@ -6,14 +6,20 @@
 	],
 
 	"pizzas": [
-		{"pizzaID": 0, "assetName": "pizza1", "complexity": 1, "ingredientSet": [0, 1, 2]},
-		{"pizzaID": 1, "assetName": "pizza2", "complexity": 2, "ingredientSet": [0, 1, 2]},
-		{"pizzaID": 2, "assetName": "pizza3", "complexity": 3, "ingredientSet": [0, 1, 2]}
+		{"pizzaID": 0, "assetName": "pizza1", "complexity": 1, "ingredientSet": [0, 1, 2], "garbageCount": 3},
+		{"pizzaID": 1, "assetName": "pizza2", "complexity": 2, "ingredientSet": [0, 1, 2], "garbageCount": 3},
+		{"pizzaID": 2, "assetName": "pizza3", "complexity": 3, "ingredientSet": [0, 1, 2], "garbageCount": 3}
 	],
 
 	"ingredients": [
 		{"ingredientID": 0, "assetName": "tomato", "scale": 0.5},
 		{"ingredientID": 1, "assetName": "cheese", "scale": 0.5 },
 		{"ingredientID": 2, "assetName": "pepperoni", "scale": 0.5}
+	],
+
+	"garbage": [
+		{"ingredientID": 0, "assetName": "cigarette", "scale": 1},
+		{"ingredientID": 1, "assetName": "mouse", "scale": 0.5 },
+		{"ingredientID": 2, "assetName": "patch", "scale": 1}
 	]
 }
