@@ -9,6 +9,8 @@ public class PizzaVisual : ReusableObject
     // ingredients 
     // back image 
 
+    public Transform ingredientParent;
+
     public Slice[] slices; // always 3 
 
     void Awake(){

@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class Pizza 
 {
+    static int SLICES = 3;
+
     Game.Models.PizzaMeta pizzaMeta;     
     // meta 
 
@@ -58,23 +60,53 @@ public class Pizza
         SetupIngredients();
     }
 
+    static float xRange = 5f;
+    static float yRange = 6f;
+    static Vector3 tmpPosition;
+    static Vector3 tmpScale;
+
     void SetupIngredients(){
 
         // TODO reuse what is left 
-        ingredients = null;
+        ingredients = new List<Ingredient>();
 
         Game.Models.IngredientMeta imeta = null;
         Ingredient ingredient = null;
 
         // TODO mult by 3 slices! 
 
-        for (int i=0; i<pizzaMeta.ingredients.Count; i++){
+        for (int i=0; i<pizzaMeta.ingredientSet.Length; i++){
 
-            imeta = MainLogic.GetMainLogic().GetItemManager().GetIngredient(pizzaMeta.ingredients[i]);
+            imeta = MainLogic.GetMainLogic().GetItemManager().GetIngredient(pizzaMeta.ingredientSet[i]);
 
-            ingredient = new Ingredient();
-            ingredient.Setup(imeta);
-            ingredients.Add(ingredient);
+            for (int j=0; j<SLICES; j++){                                       
+                ingredient = new Ingredient();
+                ingredient.Setup(imeta);
+                ingredients.Add(ingredient);
+
+                var ingVis = ingredient.GetVisual();
+
+                ingVis.transform.SetParent(pizzaVisual.ingredientParent, false);
+                // ingVis.transform.position = Vector3.zero;
+
+                float ranX = UnityEngine.Random.Range(-xRange, xRange);
+                float rany = UnityEngine.Random.Range(-yRange, yRange);
+
+                tmpPosition.x = ranX;
+                tmpPosition.y = rany;
+                tmpPosition.z = 0;
+
+                // Debug.Log(" >1> tmpPosition " + tmpPosition);
+
+                ingVis.transform.localPosition = tmpPosition;
+
+                // Debug.Log(" >2> ingVis.transform.position " + ingVis.transform.position);
+
+                tmpScale.x = imeta.scale;
+                tmpScale.y = imeta.scale;
+                tmpScale.z = imeta.scale;
+                ingVis.transform.localScale = tmpScale;
+            }
 
             // set parent
             // subscribe to events

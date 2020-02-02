@@ -33,9 +33,9 @@ public class MainLogic : MonoBehaviour
         return entityManager;
     }
 
-    public InputManager GetInputManager(){
-        return inputManager;
-    }
+    // public InputManager GetInputManager(){
+    //     return inputManager;
+    // }
 
     public LevelManager GetlevelManager(){
         return levelManager;
@@ -62,7 +62,7 @@ public class MainLogic : MonoBehaviour
         itemManager = new ItemManager();
         dataController = new DataController();
         
-        inputManager.Init();
+        // inputManager.Init();
 
         EventManager.AddGameStartListener(GameStarted);
         EventManager.AddGameEndedListener(GameEnded);
@@ -131,7 +131,7 @@ public class MainLogic : MonoBehaviour
 
     void UpdatePlay(float deltaTime){
 
-        inputManager.UpdateMe(deltaTime);        
+        // inputManager.UpdateMe(deltaTime);        
         levelManager.UpdateMe(deltaTime);       
         guiLogic.UpdateMe(deltaTime);
     }

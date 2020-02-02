@@ -19,12 +19,13 @@ public class LevelManager : MonoBehaviour, IUpdatable
     public CardboardBox box;
     public PizzaVisual pizzaVisual;
 
+    public Garbage garbage;
+
     int currClientIndex = 0;
     
     Game.Models.ClientMeta[] clients;
     Client currClient;
     Pizza currPizza;
-    Garbage garbage;   
 
     float currTimeLeft = 0;
     float totalTime = 0;
@@ -129,10 +130,12 @@ public class LevelManager : MonoBehaviour, IUpdatable
     void TimeIsUp(){
         // tmp 
 
-        if (currClientIndex == clients.Length -1 )
-            EventManager.OnGameEnded();
-        else 
-            MoveToNextClient();
+        // EventManager.OnGameEnded();
+
+        // if (currClientIndex == clients.Length -1 )
+        //     EventManager.OnGameEnded();
+        // else 
+        //     MoveToNextClient();
     }
 
     // send to pool 
