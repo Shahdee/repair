@@ -37,7 +37,7 @@ namespace Game.Models{
         public int complexity; // 1-3
 
         // public List<IngredientMeta> ;
-        public List<int> ingredients;
+        public int[] ingredientSet;
         public int[] garbageCount;
 
         // asset name
@@ -57,14 +57,10 @@ namespace Game.Models{
     [System.Serializable]
     public class IngredientMeta{ 
 
-        public enum IngredientType{
-            // ?
-        }
-
-        public IngredientType ingredientType; // ? 
         public string assetName;
         public int ingredientID;
         public string assetSoundName;
+        public float scale;
 
         // asset name 
         // type 

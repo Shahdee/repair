@@ -21,16 +21,24 @@ public class Ingredient
    public void Setup(Game.Models.IngredientMeta imeta){
       ingredientMeta = imeta;
 
-      // subscribe to events 
+      GameObject gobject = MainLogic.GetMainLogic().GetEntityManager().GetEntity(ingredientMeta.assetName);
+      
+      gobject.SetActive(true);     
+
+      ingredientVisual = gobject.GetComponent<IngredientVisual>();
+
+      //TODO subscribe to events 
 
    }
 
    public void Reset(){
-
-
-      // unsubscribe from events 
-      
+      // TODO unsubscribe from events 
       // return to pool 
+
+      if (ingredientVisual != null){
+         MainLogic.GetMainLogic().GetEntityManager().ReturnEntity(ingredientVisual.gameObject);
+         ingredientVisual = null;
+      }
    } 
    
 }

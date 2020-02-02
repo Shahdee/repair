@@ -29,7 +29,7 @@ public class IngredientVisual : ReusableObject
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log(" enter ingr " + col.name);
+        // Debug.Log(" enter ingr " + col.name);
 
         
 
@@ -45,7 +45,7 @@ public class IngredientVisual : ReusableObject
 
     void OnTriggerExit2D(Collider2D col)
     {
-        Debug.Log(" exit ingr" + col.name);
+        // Debug.Log(" exit ingr" + col.name);
 
         // remove toching 
         // touchingObjects

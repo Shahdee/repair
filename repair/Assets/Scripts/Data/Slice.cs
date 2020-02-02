@@ -15,13 +15,13 @@ public class Slice : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log(" enter slice" + col.name);
+        // Debug.Log(" enter slice" + col.name);
        
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
-        Debug.Log(" exit slice" + col.name);
+        // Debug.Log(" exit slice" + col.name);
        
     }
 
