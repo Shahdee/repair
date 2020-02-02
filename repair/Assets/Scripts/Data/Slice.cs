@@ -7,7 +7,7 @@ public class Slice : MonoBehaviour
     // collider - triangle 
     public Collider2D collider2d;
 
-    List<GameObject> touchingObjects;
+    List<GameObject> touchingObjects = new List<GameObject>();
 
     void Awake(){
         touchingObjects = new List<GameObject>();
@@ -30,4 +30,10 @@ public class Slice : MonoBehaviour
         
     //     Debug.Log(" stay slice" + col.name);
     // }
+
+    public void Clear(){
+
+        touchingObjects.Clear();
+
+    }
 }

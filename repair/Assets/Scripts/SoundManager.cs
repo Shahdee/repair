@@ -7,6 +7,8 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField] private AudioClip buttonPressed;
 
+    [SerializeField] private AudioClip throwTrash;
+
     [SerializeField] private AudioClip[] audioClips;
 
     static SoundManager soundManager;
@@ -25,9 +27,16 @@ public class SoundManager : MonoBehaviour
 
     public void PlayButtonPressedSound()
     {
-        Debug.Log("PlayButtonPressedSound");
+        // Debug.Log("PlayButtonPressedSound");
 
         PlayClip(buttonPressed);
+    }
+
+    public void PlayTrash()
+    {
+        // Debug.Log("PlayButtonPressedSound");
+
+        PlayClip(throwTrash);
     }
 
     public void PlayClip(string name)
@@ -48,9 +57,9 @@ public class SoundManager : MonoBehaviour
 
     void PlayClip(AudioClip clip){
 
-        Debug.Log("PlayClip");
+        // Debug.Log("PlayClip");
 
-        audioSource.clip = buttonPressed;
+        audioSource.clip = clip;
         audioSource.Play();
     }
 

@@ -11,6 +11,10 @@ public class Ingredient
    // visual 
    IngredientVisual ingredientVisual;
 
+   public Game.Models.IngredientMeta GetMeta(){
+      return ingredientMeta;
+   }
+
    public IngredientVisual GetVisual(){
       return ingredientVisual;
    }
@@ -40,7 +44,7 @@ public class Ingredient
       if (ingredientVisual != null){
          MainLogic.GetMainLogic().GetEntityManager().ReturnEntity(ingredientVisual);
          ingredientVisual = null;
-      }
+      }     
    } 
 
    void MouseDown(){

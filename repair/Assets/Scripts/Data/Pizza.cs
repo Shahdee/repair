@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Pizza 
 {
-    static int SLICES = 3;
+    public static int SLICES = 3;
 
     Game.Models.PizzaMeta pizzaMeta;     
     // meta 
@@ -14,13 +14,26 @@ public class Pizza
     // ingredients which can be dragged from pizza to garbage 
     PizzaVisual pizzaVisual;
 
-    // public PizzaVisual GetVisual(){
-    //     return pizzaVisual;
-    // }
+    public PizzaVisual GetVisual(){
+        return pizzaVisual;
+    }
 
     // ingredients 
     List<Ingredient> ingredients = new List<Ingredient>();
     List<Ingredient> garbage = new List<Ingredient>();
+    
+
+    public Game.Models.PizzaMeta GetMeta(){
+        return pizzaMeta;
+    }
+
+    public List<Ingredient> GetIngredients(){
+        return ingredients;
+    }
+
+    public List<Ingredient> GetGarbage(){
+        return garbage;
+    }
     
     // visual 
         // pizza picture 
@@ -110,11 +123,9 @@ public class Pizza
                 tmpScale.y = imeta.scale;
                 tmpScale.z = imeta.scale;
                 ingVis.transform.localScale = tmpScale;
-            }
 
-            // set parent
-            // subscribe to events
-
+                ingVis.AddGarbageListener(OnGarbage);
+            }       
         }
     }
 
@@ -154,6 +165,8 @@ public class Pizza
             tmpScale.y = imeta.scale;
             tmpScale.z = imeta.scale;
             ingVis.transform.localScale = tmpScale;
+
+            ingVis.AddGarbageListener(OnGarbage);
         }
     }
 
@@ -164,6 +177,8 @@ public class Pizza
         // }       
         ResetIngredients();
         ResetGarbage();
+
+        pizzaVisual.ClearForBuffer();
     }
 
     void ResetIngredients(){
@@ -185,6 +200,47 @@ public class Pizza
 
         // TODO reuse what is left 
         garbage = null;
+    }
+
+    void OnGarbage(IngredientVisual trash){
+
+        Ingredient ing = null;
+
+        ing = GetIngredient(trash);
+        if(ing == null)
+            ing = GetGarbage(trash);   
+
+        if (ing != null){
+
+            SoundManager.GetSoundManager().PlayTrash();
+
+            ing.Reset();
+        }
+    }
+
+    Ingredient GetIngredient(IngredientVisual iv){
+
+        IngredientVisual lcVis;
+
+        for (int i=0; i<ingredients.Count; i++){
+            lcVis = ingredients[i].GetVisual();
+
+            if (iv == lcVis)         
+                return ingredients[i];
+        }   
+        return null;
+    }
+
+    Ingredient GetGarbage(IngredientVisual iv){
+        IngredientVisual lcVis;
+
+        for (int i=0; i<garbage.Count; i++){
+            lcVis = garbage[i].GetVisual();
+
+            if (iv == lcVis)         
+                return garbage[i];
+        }   
+        return null;
     }
 
     // pizza is subscribed to collider events 

@@ -63,11 +63,13 @@ public class EntityManager : MonoBehaviour
         return null;
     }   
 
-    public void ReturnEntity(GameObject obj){
+    public void ReturnEntity(ReusableObject robj){
+
+        robj.ClearForBuffer();
 
         // Debug.Log("ReturnToPool " + obj);
 
-        obj.transform.SetParent(trsPoolParent);
-        obj.gameObject.SetActive(false);
+        robj.gameObject.transform.SetParent(trsPoolParent);
+        robj.gameObject.SetActive(false);
     }
 }

@@ -20,4 +20,10 @@ public class PizzaVisual : ReusableObject
     void OnEnable(){
 
     }
+
+    public override void ClearForBuffer(){
+        for (int i=0; i<slices.Length; i++){
+            slices[i].Clear();
+        }
+    }
 }

@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class ReusableObject : MonoBehaviour
 {
+    public static string tagCollision = "Collision";
+    public static string garbageName = "Garbage";
 
+    public virtual void ClearForBuffer(){}
 
    
 }

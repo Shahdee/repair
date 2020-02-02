@@ -11,6 +11,9 @@ public class IngredientVisual : ReusableObject
 
     List<GameObject> touchingObjects;
 
+    public List<GameObject> GetTouchingObjects(){
+        return touchingObjects;
+    }
 
     // sound 
     [SerializeField]
@@ -51,6 +54,7 @@ public class IngredientVisual : ReusableObject
     void ClearListeners(){
         mouseDownCallback = null;
         mouseUpCallback = null;
+        garbageCallback = null;
     }
 
     private void OnMouseDown() 
@@ -65,12 +69,37 @@ public class IngredientVisual : ReusableObject
             mouseUpCallback();
     }
 
+
+    public UnityAction<IngredientVisual> garbageCallback;
+
+    public void AddGarbageListener(UnityAction<IngredientVisual> action){
+        garbageCallback += action;
+    }
+
+    public void RemoveGarbageListener(UnityAction<IngredientVisual> action){
+        garbageCallback -= action;
+    }
+
+    void OnGarbage(){
+        if (garbageCallback != null)
+            garbageCallback(this);
+    }
+
     void OnTriggerEnter2D(Collider2D col)
     {
-        // Debug.Log(" enter ingr " + col.name);
+        Debug.Log(" enter ingr " + col.name);
 
-        
+        if (col.tag == ReusableObject.tagCollision){
 
+            if (col.name == ReusableObject.garbageName){
+
+                // to pool
+                OnGarbage();
+            }
+            else{
+                touchingObjects.Add(col.gameObject);
+            }
+        }
 
         // add toching 
         // touchingObjects
@@ -83,11 +112,14 @@ public class IngredientVisual : ReusableObject
 
     void OnTriggerExit2D(Collider2D col)
     {
-        // Debug.Log(" exit ingr" + col.name);
+        Debug.Log(" exit ingr" + col.name);
 
         // remove toching 
         // touchingObjects
-       
+
+        if (col.tag == ReusableObject.tagCollision){
+            touchingObjects.Remove(col.gameObject);
+        }      
     }
 
     // void OnTriggerStay2D(Collider2D col)
@@ -100,6 +132,8 @@ public class IngredientVisual : ReusableObject
 
         // touchingObjects
         // TODO 
+
+        touchingObjects.Clear();
 
         ClearListeners();
 
