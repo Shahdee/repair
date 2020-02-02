@@ -25,7 +25,7 @@ public class Client
     // setup client
         // get client from pool  
 
-    public void ResetClient(){
+    public void Reset(){
         
     }
 

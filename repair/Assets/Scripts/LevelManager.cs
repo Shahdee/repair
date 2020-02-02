@@ -17,6 +17,7 @@ public class LevelManager : MonoBehaviour, IUpdatable
 {
     public Transform pizzaParent;
     public CardboardBox box;
+    public PizzaVisual pizzaVisual;
 
     int currClientIndex = 0;
     
@@ -43,7 +44,7 @@ public class LevelManager : MonoBehaviour, IUpdatable
 
     void Awake(){
         currClient = new Client();
-        currPizza = new Pizza();
+        currPizza = new Pizza(pizzaVisual);       
     }
 
     public void StartLevel(){
@@ -75,10 +76,10 @@ public class LevelManager : MonoBehaviour, IUpdatable
         // Game.Models.PizzaMeta pMeta = MainLogic.GetMainLogic().GetItemManager().GetRandomPizza(cpx);
 
         Game.Models.PizzaMeta pMeta = MainLogic.GetMainLogic().GetItemManager().GetRandomPizza();
-        currPizza.SetupPizza(pMeta);
+        currPizza.Setup(pMeta);
 
-        var visual = currPizza.GetVisual();
-        visual.transform.SetParent(pizzaParent);
+        // var visual = currPizza.GetVisual();
+        // visual.transform.SetParent(pizzaParent);
 
         SetTimer(cmeta.timer);        
     }
@@ -136,8 +137,8 @@ public class LevelManager : MonoBehaviour, IUpdatable
 
     // send to pool 
     void ResetObjects(){
-        currClient.ResetClient();
-        currPizza.ResetPizza();
+        currClient.Reset();
+        currPizza.Reset();
     }
     
 

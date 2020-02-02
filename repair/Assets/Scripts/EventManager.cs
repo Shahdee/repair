@@ -60,6 +60,7 @@ public static class EventManager
         onTimerChangeCallback += listener;
     }
 
+    // normialized 
     public static void OnTimerChange(float score){
         if (onTimerChangeCallback != null)
             onTimerChangeCallback(score);

@@ -87,6 +87,14 @@ public class ItemManager
         return allPizzas[randIdx];
     }
 
+    public Game.Models.IngredientMeta GetIngredient(int id){
+        for (int i=0; i<allIngredients.Length; i++){
+            if (allIngredients[i].ingredientID == id)
+                return allIngredients[i];
+        }
+        return null;
+    }
+
 
    // TODO randmozie clients for curr session 
 }

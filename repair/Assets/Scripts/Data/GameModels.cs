@@ -36,6 +36,10 @@ namespace Game.Models{
         public int pizzaId;
         public int complexity; // 1-3
 
+        // public List<IngredientMeta> ;
+        public List<int> ingredients;
+        public int[] garbageCount;
+
         // asset name
         // id 
         // belongs to complexity 

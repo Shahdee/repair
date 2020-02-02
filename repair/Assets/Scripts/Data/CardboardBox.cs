@@ -5,4 +5,5 @@ using UnityEngine;
 public class CardboardBox : MonoBehaviour
 {
    // can close and animate 
+      // appear & disappear 
 }
