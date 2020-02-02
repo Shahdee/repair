@@ -12,14 +12,14 @@
 	],
 
 	"ingredients": [
-		{"ingredientID": 0, "assetName": "tomato", "scale": 0.5, "soundTake": "", "soundPut": ""},
-		{"ingredientID": 1, "assetName": "cheese", "scale": 0.5 },
-		{"ingredientID": 2, "assetName": "pepperoni", "scale": 0.5}
+		{"ingredientID": 0, "assetName": "tomato", "scale": 0.5, "soundTake": "take_main_1", "soundPut": "put_main_1"},
+		{"ingredientID": 1, "assetName": "cheese", "scale": 0.5, "soundTake": "take_main_2", "soundPut": "put_main_2"},
+		{"ingredientID": 2, "assetName": "pepperoni", "scale": 0.5, "soundTake": "take_main_3", "soundPut": "put_main_3"}
 	],
 
 	"garbage": [
-		{"ingredientID": 0, "assetName": "cigarette", "scale": 1},
-		{"ingredientID": 1, "assetName": "mouse", "scale": 0.5 },
-		{"ingredientID": 2, "assetName": "patch", "scale": 1}
+		{"ingredientID": 0, "assetName": "cigarette", "scale": 1, "soundTake": "take_cigarette", "soundPut": "put_cigarette"},
+		{"ingredientID": 1, "assetName": "mouse", "scale": 0.5, "soundTake": "take_mouse_1", "soundPut": "put_mouse"},
+		{"ingredientID": 2, "assetName": "patch", "scale": 1, "soundTake": "take_tape", "soundPut": "put_tape"}
 	]
 }

@@ -29,16 +29,26 @@ public class Ingredient
 
       //TODO subscribe to events 
 
+      ingredientVisual.AddMouseDownListener(MouseDown);
+      ingredientVisual.AddMouseUpListener(MouseUp);
+
    }
 
    public void Reset(){
       // TODO unsubscribe from events 
       // return to pool 
-
       if (ingredientVisual != null){
-         MainLogic.GetMainLogic().GetEntityManager().ReturnEntity(ingredientVisual.gameObject);
+         MainLogic.GetMainLogic().GetEntityManager().ReturnEntity(ingredientVisual);
          ingredientVisual = null;
       }
    } 
+
+   void MouseDown(){
+      SoundManager.GetSoundManager().PlayClip(ingredientMeta.soundTake);
+   }
+
+   void MouseUp(){
+      SoundManager.GetSoundManager().PlayClip(ingredientMeta.soundPut);
+   }
    
 }

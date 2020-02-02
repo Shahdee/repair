@@ -59,7 +59,8 @@ namespace Game.Models{
 
         public string assetName;
         public int ingredientID;
-        public string assetSoundName;
+        public string soundPut;
+        public string soundTake;
         public float scale;
 
         // asset name 

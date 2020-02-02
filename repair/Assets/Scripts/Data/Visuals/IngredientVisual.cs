@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class IngredientVisual : ReusableObject
 {
@@ -25,6 +26,43 @@ public class IngredientVisual : ReusableObject
 
     void OnEnable(){
 
+    }
+
+    public UnityAction mouseUpCallback;
+
+    public void AddMouseUpListener(UnityAction action){
+        mouseUpCallback += action;
+    }
+
+    public void RemoveMouseUpListener(UnityAction action){
+        mouseUpCallback -= action;
+    }
+
+    public UnityAction mouseDownCallback;
+
+    public void AddMouseDownListener(UnityAction action){
+        mouseDownCallback += action;
+    }
+
+    public void RemoveMouseDownListener(UnityAction action){
+        mouseDownCallback -= action;
+    }
+
+    void ClearListeners(){
+        mouseDownCallback = null;
+        mouseUpCallback = null;
+    }
+
+    private void OnMouseDown() 
+    {
+        if (mouseDownCallback != null)
+            mouseDownCallback();
+    }
+
+    private void OnMouseUp() 
+    {
+        if (mouseUpCallback != null)
+            mouseUpCallback();
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -58,9 +96,12 @@ public class IngredientVisual : ReusableObject
     //     Debug.Log(" stay ingr" + col.name);
     // }
 
-    public void Clear(){
+    public override void ClearForBuffer(){
 
         // touchingObjects
         // TODO 
+
+        ClearListeners();
+
     }
 }
