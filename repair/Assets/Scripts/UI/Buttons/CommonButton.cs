@@ -23,6 +23,8 @@ public class CommonButton : MonoBehaviour
         if (onBtnClick != null)
             onBtnClick();
 
+        SoundManager.GetSoundManager().PlayButtonPressedSound();
+
         // event 
         // TODO  play sound 
     }

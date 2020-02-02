@@ -9,6 +9,7 @@ public class MainLogic : MonoBehaviour
     public InputManager inputManager;
     public LevelManager levelManager;
     public ItemManager itemManager;
+    public SoundManager soundManager;
     Player player;
     DataController dataController;
 

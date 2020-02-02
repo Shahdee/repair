@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+
     [SerializeField] private AudioClip buttonPressed;
+
+    [SerializeField] private AudioClip[] audioClips;
 
     static SoundManager soundManager;
     private AudioSource audioSource;
@@ -20,14 +23,35 @@ public class SoundManager : MonoBehaviour
         return soundManager;
     }
 
-    public static void PlayButtonPressedSound()
+    public void PlayButtonPressedSound()
     {
-        soundManager.audioSource.PlayOneShot(soundManager.buttonPressed);
+        Debug.Log("PlayButtonPressedSound");
+
+        PlayClip(buttonPressed);
     }
 
-    public void PlayClip()
+    public void PlayClip(string name)
     {
+        AudioClip clip = GetClip(name);
+        if (clip != null){
+            PlayClip(clip);
+        }
+    }
 
+    AudioClip GetClip(string name){
+        for (int i=0; i<audioClips.Length; i++){
+            if (audioClips[i].name == name)
+                return audioClips[i];
+        }
+        return null;
+    }
+
+    void PlayClip(AudioClip clip){
+
+        Debug.Log("PlayClip");
+
+        audioSource.clip = buttonPressed;
+        audioSource.Play();
     }
 
 }

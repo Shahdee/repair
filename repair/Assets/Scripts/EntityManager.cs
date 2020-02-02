@@ -44,7 +44,7 @@ public class EntityManager : MonoBehaviour
 
     public GameObject GetEntity(string name){
 
-        Debug.Log("GetEntity " + name);
+        // Debug.Log("GetEntity " + name);
 
         for (int i=0; i<objectsInPool.Count; i++){
             if (!objectsInPool[i].activeInHierarchy && objectsInPool[i].name == name){
