@@ -5,7 +5,7 @@ using UnityEngine;
 public static class ScoreManager 
 {
      
-    public static void CalcMinErrors(Pizza pizza){ 
+    public static int CalcMinErrors(Pizza pizza){ 
 
         var meta = pizza.GetMeta();
         var ingredients = pizza.GetIngredients();
@@ -26,8 +26,6 @@ public static class ScoreManager
 
                 for (int k=0; k<ingredients.Count; i++){
 
-                    // ingredientMeta = 
-
                     if (meta.ingredientSet[j] == ingredients[k].GetMeta().ingredientID){
 
                         if (ingredients[k].GetVisual() != null){ // we didn't trash it 
@@ -41,7 +39,9 @@ public static class ScoreManager
                     }
                 }
             }
-        } 
+        }
+
+        return errors; 
     }
 
     static bool CheckSliceCollision(IngredientVisual ivis, Slice slc){
@@ -57,10 +57,15 @@ public static class ScoreManager
     }
 
  
-    public static void CalcMisplace(Pizza pizza){
+    // public static void CalcMisplace(Pizza pizza){
+
+    //     var ingredients = pizza.GetIngredients();
+
+    //     for (int i=0; i<ingredients.Count; i++){
 
 
-    } 
+    //     }
+    // } 
 
     public static int CalcGarbage(Pizza pizza){
 
