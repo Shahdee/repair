@@ -10,6 +10,8 @@ public class MovableObject : MonoBehaviour
     {
         offset.x = transform.position.x - GetMouseWorldPosition().x;
         offset.y = transform.position.y - GetMouseWorldPosition().y;
+        SoundRandomContainer soundContainer = GetComponent<IngredientVisual>().soundTake;
+        soundContainer?.Play();
     }
 
     private void OnMouseDrag() 
@@ -20,5 +22,11 @@ public class MovableObject : MonoBehaviour
     private Vector2 GetMouseWorldPosition()
     {
         return Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
+
+    private void OnMouseUp()
+    {
+        SoundRandomContainer soundContainer = GetComponent<IngredientVisual>().soundPut;
+        soundContainer?.Play();
     }
 }

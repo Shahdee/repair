@@ -12,10 +12,16 @@ public class SoundRandomContainer : MonoBehaviour
     private AudioSource source;
     public void Play()
     {
+        if (!source)
+        {
+            source = gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
+            source.enabled = true;
+        }
         if(audioClips!=null)
         {
             int value = Random.Range(0, audioClips.Length - 1);
             source.clip = audioClips[value];
+            source.enabled = true;
             source.Play();
         }
         
