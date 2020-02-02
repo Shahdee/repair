@@ -16,4 +16,6 @@ public class GameData
 
     public Game.Models.IngredientMeta[] ingredients;
 
+    public Game.Models.IngredientMeta[] garbage;
+
 }

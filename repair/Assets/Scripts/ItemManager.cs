@@ -56,6 +56,22 @@ public class ItemManager
         // }
     }
 
+    // collection of all garbage we have 
+
+   Game.Models.IngredientMeta[] allGarbage;
+    public void PrepareGarbage(Game.Models.IngredientMeta[] garbage){
+        allGarbage = garbage;     
+    }
+
+    public Game.Models.IngredientMeta[] GetGarbage(){
+        return allGarbage;
+    }
+
+    public Game.Models.IngredientMeta GetRandomGarbage(){
+        int ranIdx = UnityEngine.Random.Range(0, allGarbage.Length);
+        return allGarbage[ranIdx];
+    }
+
     public Game.Models.IngredientMeta[] GetIngredients(){
         return allIngredients;
     }

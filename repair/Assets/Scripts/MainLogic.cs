@@ -79,6 +79,7 @@ public class MainLogic : MonoBehaviour
         itemManager.PrepareClients(gameData.clients);
         itemManager.PreparePizzas(gameData.pizzas);
         itemManager.PrepareIngredients(gameData.ingredients);       
+        itemManager.PrepareGarbage(gameData.garbage);       
     }
 
 #region Level events 

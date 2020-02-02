@@ -20,6 +20,7 @@ public class Pizza
 
     // ingredients 
     List<Ingredient> ingredients = new List<Ingredient>();
+    List<Ingredient> garbage = new List<Ingredient>();
     
     // visual 
         // pizza picture 
@@ -58,10 +59,13 @@ public class Pizza
         // pizzaVisual = gobject.GetComponent<PizzaVisual>();
 
         SetupIngredients();
+        SetupGarbage();
     }
 
     static float xRange = 5f;
     static float yRange = 6f;
+
+    static float zRange = 10f;
     static Vector3 tmpPosition;
     static Vector3 tmpScale;
 
@@ -94,7 +98,7 @@ public class Pizza
 
                 tmpPosition.x = ranX;
                 tmpPosition.y = rany;
-                tmpPosition.z = 0;
+                tmpPosition.z = zRange;
 
                 // Debug.Log(" >1> tmpPosition " + tmpPosition);
 
@@ -112,7 +116,45 @@ public class Pizza
             // subscribe to events
 
         }
+    }
 
+    void SetupGarbage(){
+        // TODO reuse what is left 
+        garbage = new List<Ingredient>();
+
+        Game.Models.IngredientMeta imeta = null;
+        Ingredient ingredient = null;
+
+        for (int i=0; i<pizzaMeta.garbageCount; i++){
+
+            imeta = MainLogic.GetMainLogic().GetItemManager().GetRandomGarbage();
+            ingredient = new Ingredient();
+            ingredient.Setup(imeta);
+            garbage.Add(ingredient);
+
+            var ingVis = ingredient.GetVisual();
+
+            ingVis.transform.SetParent(pizzaVisual.ingredientParent, false);
+            // ingVis.transform.position = Vector3.zero;
+
+            float ranX = UnityEngine.Random.Range(-xRange, xRange);
+            float rany = UnityEngine.Random.Range(-yRange, yRange);
+
+            tmpPosition.x = ranX;
+            tmpPosition.y = rany;
+            tmpPosition.z = zRange;
+
+            // Debug.Log(" >1> tmpPosition " + tmpPosition);
+
+            ingVis.transform.localPosition = tmpPosition;
+
+            // Debug.Log(" >2> ingVis.transform.position " + ingVis.transform.position);
+
+            tmpScale.x = imeta.scale;
+            tmpScale.y = imeta.scale;
+            tmpScale.z = imeta.scale;
+            ingVis.transform.localScale = tmpScale;
+        }
     }
 
     public void Reset(){
@@ -121,6 +163,7 @@ public class Pizza
         //     pizzaVisual = null;
         // }       
         ResetIngredients();
+        ResetGarbage();
     }
 
     void ResetIngredients(){
@@ -133,6 +176,15 @@ public class Pizza
 
         // TODO reuse what is left 
         ingredients = null;
+    }
+
+    void ResetGarbage(){
+        for (int i=0; i<garbage.Count; i++){
+            garbage[i].Reset();
+        }
+
+        // TODO reuse what is left 
+        garbage = null;
     }
 
     // pizza is subscribed to collider events 
